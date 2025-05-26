@@ -1,1 +1,29 @@
+# CVE - Mark of the Web (MotW) Bypass in B1 Free Archiver
 
+## 🎥 Proof of Concept (PoC) Video
+
+[![Watch the demonstration on YouTube](https://img.youtube.com/vi/VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_HERE)
+
+> Replace `VIDEO_ID_HERE` with your actual YouTube video ID.
+
+## 📄 Description
+
+A vulnerability in **B1 Free Archiver v1.7.120.0** allows extracted files from downloaded archives to **bypass Windows' Mark of the Web (MotW)** protections. When a file is downloaded from the internet and extracted using B1 Free Archiver, the extracted files do **not retain the `Zone.Identifier` alternate data stream**.
+
+As a result, these files can be executed **without triggering SmartScreen warnings** or security prompts, which would normally appear when opening files from untrusted sources.
+
+## 💥 Impact
+
+- MotW is not applied to extracted files
+- Windows treats the files as trusted
+- Potential for code execution without user warning
+- Enables social engineering attacks or malware delivery
+
+## 🧪 How to Reproduce
+
+1. Download a `.zip` file from the internet containing an executable.
+2. Extract the file using **B1 Free Archiver**.
+3. Attempt to read the `Zone.Identifier`:
+
+```powershell
+Get-Content .\malicious.exe -Stream Zone.Identifier
