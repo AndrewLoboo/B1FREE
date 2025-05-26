@@ -2,7 +2,7 @@
 🎥 Proof of Concept (PoC) Video - https://youtu.be/79tYQo2Bkog
 
 Description:
-A vulnerability in B1 Free Archiver v1.7.120.0 allows extracted files from downloaded archives to bypass Windows Mark of the Web (MotW) protections. When a file is downloaded from the internet and extracted using B1 Free Archiver, the extracted files do not retain the `Zone.Identifier` alternate data stream.
+A vulnerability in B1 Free Archiver v1.5.86 allows extracted files from downloaded archives to bypass Windows Mark of the Web (MotW) protections. When a file is downloaded from the internet and extracted using B1 Free Archiver, the extracted files do not retain the `Zone.Identifier` alternate data stream.
 
 As a result, these files can be executed without triggering SmartScreen warnings or security prompts, which would normally appear when opening files from untrusted sources.
 
